@@ -21,8 +21,9 @@ class SubHandler(object):
 
 
 async def main():
-    url = "opc.tcp://localhost:4840/freeopcua/server/"
-    async with Client(url=url) as client:
+    url = "opc.tcp://localhost:4841/freeopcua/server/"
+    url2 = "opc.tcp://0.0.0.0:4840/nne_local/server/"
+    async with Client(url=url2) as client:
         _logger.info("Root node is: %r", client.nodes.root)
         _logger.info("Objects node is: %r", client.nodes.objects)
 
