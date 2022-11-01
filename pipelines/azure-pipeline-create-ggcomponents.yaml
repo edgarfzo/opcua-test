@@ -1,0 +1,61 @@
+trigger:
+- feature/*
+- main
+variables: #pipeline level
+  - group: global-variables
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+steps:
+
+- task: NodeTool@0
+  inputs:
+    versionSpec: '16.x'
+
+- task: UseRubyVersion@0
+  inputs:
+    versionSpec: '>= 2.4'
+
+- script: |
+    echo "Installing packages"
+    sudo npm install -g aws-cdk
+    sudo gem install cfn-nag 
+  displayName: 'Installing aws cdk and cfn nag'
+
+- script: |
+    echo "Installing project dependencies"
+    sudo npm install
+    sudo npm run build
+    ls   
+  displayName: 'Installing project dependencies'
+
+- script: |
+    echo "Installing lambda python packages"
+    cd lib/constructs/lambda/src
+    ls
+    for i in ./*;
+    do
+      echo $i
+      cd $i
+      mkdir zipFolder
+      cp index.py zipFolder/
+      pip install --target ./zipFolder -r ./package/requirements.txt
+      cd zipFolder/
+      zip -r ../lambdaDeploy.zip .
+      cd ..
+      ls
+      cd ..
+    done;
+    ls   
+  displayName: 'Installing python dependencies'
+
+- task: AWSShellScript@1
+  inputs:
+    awsCredentials: $(credentials)
+    regionName: $(region)
+    scriptType: 'inline'
+    inlineScript: |
+      echo "Running deployment"
+      cdk deploy --require-approval never
+  displayName: 'Validating AWS CDK output'

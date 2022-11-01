@@ -1,0 +1,10 @@
+## OPCUA library usage documentation
+
+Here the asyncua library usage will be documented to assure knowledge share
+The first step for the OPC UA client is to find the nodes.
+The objctive is to be able to get the data from the different value nodes.
+This can be separated into 2 steps: 
+-- finding the parent node for the ports
+-- iterating over those ports
+From each port we will need the sensors name and its value.
+In order to do this we will need already some iodd knowledge

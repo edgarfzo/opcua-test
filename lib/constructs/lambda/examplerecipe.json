@@ -1,0 +1,58 @@
+{
+    "inlineRecipe": "inlineRecipe",
+    "lambdaFunction": {
+    "componentDependencies": {
+      "componentDependenciesKey": {
+        "dependencyType": "dependencyType",
+        "versionRequirement": "versionRequirement"
+      }
+    },
+    "componentLambdaParameters": {
+      "environmentVariables": {
+        "environmentVariablesKey": "environmentVariables"
+      },
+      "eventSources": [{
+        "topic": "topic",
+        "type": "type"
+      }],
+      "execArgs": ["execArgs"],
+      "inputPayloadEncodingType": "inputPayloadEncodingType",
+      "linuxProcessParams": {
+        "containerParams": {
+          "devices": [{
+            "addGroupOwner": false,
+            "path": "path",
+            "permission": "permission"
+          }],
+          "memorySizeInKb": 123,
+          "mountRoSysfs": false,
+          "volumes": [{
+            "addGroupOwner": false,
+            "destinationPath": "destinationPath",
+            "permission": "permission",
+            "sourcePath": "sourcePath"
+          }]
+        },
+        "isolationMode": "isolationMode"
+      },
+      "maxIdleTimeInSeconds": 123,
+      "maxInstancesCount": 123,
+      "maxQueueSize": 123,
+      "pinned": false,
+      "statusTimeoutInSeconds": 123,
+      "timeoutInSeconds": 123
+    },
+    "componentName": "componentName",
+    "componentPlatforms": [{
+      "attributes": {
+        "attributesKey": "attributes"
+      },
+      "name": "name"
+    }],
+    "componentVersion": "componentVersion",
+    "lambdaArn": "lambdaArn"
+  },
+ "tags": {
+    "tagsKey": "tags"
+  }
+}

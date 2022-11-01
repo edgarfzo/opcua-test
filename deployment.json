@@ -1,0 +1,23 @@
+{
+    "targetArn": "arn:aws:iot:eu-central-1:419458780298:thing/avgzThingy1",
+    "deploymentName": "eafo deployment test",
+    "components": {
+      "com.cdk.opcua-deployed": { "componentVersion": "1.0.4",
+          "configurationUpdate":{
+            "reset": [],
+            "merge": "{\"accessControl\":{\"aws.greengrass.ipc.mqttproxy\":{\"com.cdk.opcua-deployed:pubsub:1\":{\"policyDescription\":\"Allowsaccesstopublishtoanything.\",\"operations\":[\"aws.greengrass#PublishToIoTCore\"],\"resources\":[\"cloud-gg-topic-0\"]}}}}"
+      }},
+      "aws.greengrass.clientdevices.mqtt.Bridge": { "componentVersion": "2.2.0"},
+      "aws.greengrass.Cli": { "componentVersion": "2.6.0"},
+      "aws.greengrass.LambdaLauncher": { "componentVersion": "2.0.10"},
+      "aws.greengrass.LogManager": { "componentVersion": "2.2.5"},
+      "aws.greengrass.StreamManager": { "componentVersion": "2.0.15"},
+      "aws.greengrass.Nucleus": { "componentVersion": "2.6.0"},
+      "aws.greengrass.LambdaRuntimes": { "componentVersion": "2.0.8"},
+      "aws.greengrass.LocalDebugConsole": { "componentVersion": "2.2.4"},
+      "aws.greengrass.clientdevices.IPDetector": { "componentVersion": "2.1.2"},
+      "aws.greengrass.clientdevices.Auth": { "componentVersion": "2.2.0"},
+      "aws.greengrass.LambdaManager": { "componentVersion": "2.2.4"}
+      
+    }
+  }

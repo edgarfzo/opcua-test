@@ -1,0 +1,35 @@
+trigger:
+- feature/*
+- main
+variables: #pipeline level
+  - group: global-variables
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+steps:
+
+- task: NodeTool@0
+  inputs:
+    versionSpec: '16.x'
+
+- task: AWSShellScript@1
+  inputs:
+    awsCredentials: $(credentials)
+    regionName: $(region)
+    scriptType: 'inline'
+    inlineScript: |
+      echo "Running deployment"
+      echo $(aws greengrassv2 list-deployments --target-arn arn:aws:iot:eu-central-1:419458780298:thinggroup/avgzNNegroup1)
+  displayName: 'Getting last deployment active -- get deployment id into pipeline'
+
+- task: AWSShellScript@1
+  inputs:
+    awsCredentials: $(credentials)
+    regionName: $(region)
+    scriptType: 'inline'
+    inlineScript: |
+      echo "Running deployment"
+      aws greengrassv2 create-deployment --cli-input-json file://deployment.json
+  displayName: 'Fetching last deployment data'
+
