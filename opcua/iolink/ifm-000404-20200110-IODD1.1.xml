@@ -1682,7 +1682,7 @@
             <VariableRef variableId="V_Hi-amv01" gradient="0.1" offset="0" unitCode="1062" displayFormat="Dec.1" />
             <VariableRef variableId="V_SystemCommand">
               <Button buttonValue="208" />
-            </VariableRef>
+            </VariableRef>F
           </Menu>
           <Menu id="M_MR_SR_Memory_amv01_1066">
             <Name textId="TI_M_amv01_Name" />

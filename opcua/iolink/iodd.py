@@ -1,6 +1,7 @@
 from dataclasses import dataclass, field
 import logging
 import os
+
 import re
 import xml.etree.ElementTree as ET
 
@@ -85,14 +86,18 @@ class IODD:
             root = ET.fromstring(self.xml)
         return root
 
+
+
     def _parse_information_nodes(self) -> None:
         """Parse information points from IODD file to IODD object."""
         root = self._get_root()
 
         elements_with_unitcode = root.findall(f".//{IODD_SCHEMA_LOC}*[@unitCode]")
+        
         unitcodes_input = []
         for element in elements_with_unitcode:
             unitcode = element.get("unitCode")
+            
             if unitcode not in unitcodes_input:
                 unitcodes_input.append(unitcode)
         dict_unit_codes_SI = iodd_unitcodes(unitcodes_input=unitcodes_input)
@@ -177,9 +182,18 @@ class IODD:
                 if record_item_ref is None:
                     continue
                 subindex = int(record_item_ref.get("subindex"))
-                print('subindex: ', subindex)
+                #print('subindex: ', subindex)
+                count=0
+                node_list = []
                 for idx, information_node in enumerate(self.information_nodes):
-                    print('Information_node: ',information_node)
+                    #print('Information_node: ',information_node)
+                    node_list.append(information_node)
+                    node_list.append('_______________')
+                    count =count+1
+                    with open('your_file.txt', 'w') as f:
+                        f.write(str(node_list))
+                    
+                    
                     if information_node.subindex == subindex:
                         gradient = record_item_ref.get("gradient")
                         self.information_nodes[idx].gradient.append(

@@ -1,0 +1,239 @@
+[InformationNode eafo: 
+ - name: eafo
+ - bit_offset: 144
+ - bit_length: 16
+ - subindex: 1
+ - low_val: None
+ - up_val: None
+ - low_bounds: [-1]
+ - up_bounds: [-1]
+ - gradient: [0.0001, 0.1, 0.00393701, 0.0001, 0.1, 0.00393701]
+ - offset: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+ - display_format: [4, 1, 3, 'Dec.4', 'Dec.1', 'Dec.3']
+ - unit_codes: [1061, 1062, 1066, 1061, 1062, 1066]
+ - units: ['m/s', 'mm/s', 'in/s', 'm/s', 'mm/s', 'in/s']
+ - value_indices: [0, 1], '_______________', InformationNode v-Rms: 
+ - name: v-Rms
+ - bit_offset: 144
+ - bit_length: 16
+ - subindex: 1
+ - low_val: 0
+ - up_val: 495
+ - low_bounds: [0.0, 0.0, 0.0]
+ - up_bounds: [0.0495, 49.5, 1.949]
+ - gradient: [0.0001, 0.1, 0.00393701, 0.0001, 0.1, 0.00393701]
+ - offset: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+ - display_format: [4, 1, 3, 'Dec.4', 'Dec.1', 'Dec.3']
+ - unit_codes: [1061, 1062, 1066, 1061, 1062, 1066]
+ - units: ['m/s', 'mm/s', 'in/s', 'm/s', 'mm/s', 'in/s']
+ - value_indices: [0, 1], '_______________', InformationNode a-Peak: 
+ - name: a-Peak
+ - bit_offset: 112
+ - bit_length: 16
+ - subindex: 2
+ - low_val: 0
+ - up_val: 4903
+ - low_bounds: [0.0, 0.0, 0.0]
+ - up_bounds: [490.3, 50.0, 49997.0]
+ - gradient: [0.1, 0.0101972, 10.1972, 0.1, 0.0101972, 10.1972]
+ - offset: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+ - display_format: [1, 2, 0, 'Dec.1', 'Dec.2', 'Dec.0']
+ - unit_codes: [1076, 1658, 1659, 1076, 1658, 1659]
+ - units: ['m/s²', 'g', 'mg', 'm/s²', 'g', 'mg']
+ - value_indices: [4, 5], '_______________', InformationNode a-Rms: 
+ - name: a-Rms
+ - bit_offset: 80
+ - bit_length: 16
+ - subindex: 3
+ - low_val: 0
+ - up_val: 4903
+ - low_bounds: [0.0, 0.0, 0.0]
+ - up_bounds: [490.3, 50.0, 49997.0]
+ - gradient: [0.1, 0.0101972, 10.1972, 0.1, 0.0101972, 10.1972]
+ - offset: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+ - display_format: [1, 2, 0, 'Dec.1', 'Dec.2', 'Dec.0']
+ - unit_codes: [1076, 1658, 1659, 1076, 1658, 1659]
+ - units: ['m/s²', 'g', 'mg', 'm/s²', 'g', 'mg']
+ - value_indices: [8, 9], '_______________', InformationNode Temperature: 
+ - name: Temperature
+ - bit_offset: 48
+ - bit_length: 16
+ - subindex: 4
+ - low_val: -300
+ - up_val: 800
+ - low_bounds: [-30.0, -22.0]
+ - up_bounds: [80.0, 176.0]
+ - gradient: [0.1, 0.18, 0.1, 0.18]
+ - offset: [0.0, 32.0, 0.0, 32.0]
+ - display_format: [1, 1, 'Dec.1', 'Dec.1']
+ - unit_codes: [1001, 1002, 1001, 1002]
+ - units: ['°C', '°F', '°C', '°F']
+ - value_indices: [12, 13], '_______________', InformationNode Crest: 
+ - name: Crest
+ - bit_offset: 16
+ - bit_length: 16
+ - subindex: 5
+ - low_val: 10
+ - up_val: 500
+ - low_bounds: [1.0]
+ - up_bounds: [50.0]
+ - gradient: [0.1, 0.1]
+ - offset: [0.0, 0.0]
+ - display_format: [1, 'Dec.1']
+ - unit_codes: [None, None]
+ - units: ['N/A', 'N/A']
+ - value_indices: [16, 17], '_______________', InformationNode Device status: 
+ - name: Device status
+ - bit_offset: 4
+ - bit_length: 4
+ - subindex: 6
+ - low_val: None
+ - up_val: None
+ - low_bounds: [-1]
+ - up_bounds: [-1]
+ - gradient: [None, None]
+ - offset: [None, None]
+ - display_format: [None, None]
+ - unit_codes: [None, None]
+ - units: ['N/A', 'N/A']
+ - value_indices: [19], '_______________', InformationNode OUT2: 
+ - name: OUT2
+ - bit_offset: 1
+ - bit_length: 1
+ - subindex: 7
+ - low_val: None
+ - up_val: None
+ - low_bounds: [-1]
+ - up_bounds: [-1]
+ - gradient: [None]
+ - offset: [None]
+ - display_format: [None]
+ - unit_codes: [None]
+ - units: ['N/A']
+ - value_indices: [19], '_______________', InformationNode OUT1: 
+ - name: OUT1
+ - bit_offset: 0
+ - bit_length: 1
+ - subindex: 8
+ - low_val: None
+ - up_val: None
+ - low_bounds: [-1]
+ - up_bounds: [-1]
+ - gradient: [None]
+ - offset: [None]
+ - display_format: [None]
+ - unit_codes: [None]
+ - units: ['N/A']
+ - value_indices: [19], '_______________', InformationNode v-Rms: 
+ - name: v-Rms
+ - bit_offset: 144
+ - bit_length: 16
+ - subindex: 1
+ - low_val: 0
+ - up_val: 495
+ - low_bounds: []
+ - up_bounds: []
+ - gradient: [0.0001, 0.1, 0.00393701]
+ - offset: [0.0, 0.0, 0.0]
+ - display_format: ['Dec.4', 'Dec.1', 'Dec.3']
+ - unit_codes: [1061, 1062, 1066]
+ - units: ['m/s', 'mm/s', 'in/s']
+ - value_indices: [], '_______________', InformationNode a-Peak: 
+ - name: a-Peak
+ - bit_offset: 112
+ - bit_length: 16
+ - subindex: 2
+ - low_val: 0
+ - up_val: 4903
+ - low_bounds: []
+ - up_bounds: []
+ - gradient: [0.1, 0.0101972, 10.1972]
+ - offset: [0.0, 0.0, 0.0]
+ - display_format: ['Dec.1', 'Dec.2', 'Dec.0']
+ - unit_codes: [1076, 1658, 1659]
+ - units: ['m/s²', 'g', 'mg']
+ - value_indices: [], '_______________', InformationNode a-Rms: 
+ - name: a-Rms
+ - bit_offset: 80
+ - bit_length: 16
+ - subindex: 3
+ - low_val: 0
+ - up_val: 4903
+ - low_bounds: []
+ - up_bounds: []
+ - gradient: [0.1, 0.0101972, 10.1972]
+ - offset: [0.0, 0.0, 0.0]
+ - display_format: ['Dec.1', 'Dec.2', 'Dec.0']
+ - unit_codes: [1076, 1658, 1659]
+ - units: ['m/s²', 'g', 'mg']
+ - value_indices: [], '_______________', InformationNode Temperature: 
+ - name: Temperature
+ - bit_offset: 48
+ - bit_length: 16
+ - subindex: 4
+ - low_val: -300
+ - up_val: 800
+ - low_bounds: []
+ - up_bounds: []
+ - gradient: [0.1, 0.18]
+ - offset: [0.0, 32.0]
+ - display_format: ['Dec.1', 'Dec.1']
+ - unit_codes: [1001, 1002]
+ - units: ['°C', '°F']
+ - value_indices: [], '_______________', InformationNode Crest: 
+ - name: Crest
+ - bit_offset: 16
+ - bit_length: 16
+ - subindex: 5
+ - low_val: 10
+ - up_val: 500
+ - low_bounds: []
+ - up_bounds: []
+ - gradient: [0.1]
+ - offset: [0.0]
+ - display_format: ['Dec.1']
+ - unit_codes: [None]
+ - units: ['N/A']
+ - value_indices: [], '_______________', InformationNode Device status: 
+ - name: Device status
+ - bit_offset: 4
+ - bit_length: 4
+ - subindex: 6
+ - low_val: None
+ - up_val: None
+ - low_bounds: []
+ - up_bounds: []
+ - gradient: [None]
+ - offset: [None]
+ - display_format: [None]
+ - unit_codes: [None]
+ - units: ['N/A']
+ - value_indices: [], '_______________', InformationNode OUT2: 
+ - name: OUT2
+ - bit_offset: 1
+ - bit_length: 1
+ - subindex: 7
+ - low_val: None
+ - up_val: None
+ - low_bounds: []
+ - up_bounds: []
+ - gradient: []
+ - offset: []
+ - display_format: []
+ - unit_codes: []
+ - units: []
+ - value_indices: [], '_______________', InformationNode OUT1: 
+ - name: OUT1
+ - bit_offset: 0
+ - bit_length: 1
+ - subindex: 8
+ - low_val: None
+ - up_val: None
+ - low_bounds: []
+ - up_bounds: []
+ - gradient: []
+ - offset: []
+ - display_format: []
+ - unit_codes: []
+ - units: []
+ - value_indices: [], '_______________']

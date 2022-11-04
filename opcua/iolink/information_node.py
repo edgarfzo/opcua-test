@@ -50,6 +50,7 @@ class InformationNode:
         bit_offset: int,
         bit_length: int,
         subindex: int,
+    
     ) -> None:
         """Create InformationNode object.
 
@@ -97,15 +98,20 @@ class InformationNode:
         """
         # Special case for values that take up less than one 8-bit block
         # We are going to assume that these values don't have different possible units
+        print("bit lenght:" ,self.bit_length)
+        print("indices :",self.value_indices)
+        
         if (self.bit_length % 8 != 0) and (len(self.value_indices) == 1):
             byte_value = int.from_bytes(
                 [byte_values[i] for i in self.value_indices],
                 byteorder=byteorder,
                 signed=signed,
             )
+            print(byte_value)
             bit_list = [1 if byte_value & (1 << (7 - n)) else 0 for n in range(8)]
             start_index = 8 - (self.bit_offset + self.bit_length)
             end_index = start_index + self.bit_length
+            
             return [int("".join(str(i) for i in bit_list[start_index:end_index]), 2)]
 
         if self.gradient == [None]:
@@ -169,9 +175,14 @@ class InformationNode:
         Display format comes in the form of "Dec.X", where X is the number of decimals
         Converting this into an int allows easier usage later for rounding
         """
+        
         for i, _ in enumerate(self.display_format):
             if self.display_format[i] is not None:
-                self.display_format[i] = int(self.display_format[i].split(".")[1])
+                
+                try:
+                    self.display_format[i] = int(self.display_format[i].split(".")[1])
+                except:
+                    pass
 
     def fill_for_testing(self) -> None:
         """Set the Information Node up to be usable with no actual information.
