@@ -11,7 +11,7 @@ from opcua_server.opcua_methods import (
     delete_node_,
     write_value_to_node_,
 )
-from opcua.iolink.settings import INTERNAL_OPCUA_ADDRESS, INTERNAL_OPCUA_PORT
+from settings import INTERNAL_OPCUA_ADDRESS, INTERNAL_OPCUA_PORT
 
 server = None
 

@@ -10,41 +10,61 @@ from awsiot.greengrasscoreipc.model import (
     PublishToIoTCoreRequest
 )
 
-import asyncua
+from asyncua import Client
 
 
 logger = logging.getLogger(__name__)
 logging.basicConfig(stream=sys.stdout, level=logging.DEBUG)
 
-EXTERNAL_OPCUA_ADDRESS = "192.168.10.100"
+EXTERNAL_OPCUA_ADDRESS = "192.168.1.250"
 EXTERNAL_OPCUA_PORT = "4840"
 TIMEOUT = 10
 
 ipc_client = awsiot.greengrasscoreipc.connect()
 
 
-def main_runtime():
+async def main_runtime():
     i = 0
-    while True:
-        #following line just for testing
-        # # read from OPCUA FIRST STEP finding the nodes they are constant for the same iolink master MVP:find them and hardcode them
-        
-        # Translate to data using the iodd file always publicly available, select and download manually
-        # we need to assure that no matter where they put the sensor( ports 1-8), we tranalste correctly
-        # Publish first to iotcore, future local for second lambda
-        request = PublishToIoTCoreRequest()
-        request.topic_name = "cloud-gg-topic-0"
-        msg = str(i) + " number Hello from opcua-trial from pipeline"
-        message_dict = {"message" : msg }
-        request.payload = bytes(json.dumps(message_dict), "utf-8")
-        request.qos = QOS.AT_LEAST_ONCE
-        
-        operation = ipc_client.new_publish_to_iot_core()
-        operation.activate(request)
-        future = operation.get_response()
-        future.result(TIMEOUT)
-        i = i + 1
-        time.sleep(5)
+    url = 'opc.tcp://192.168.1.250:4840/'
+    print(url)
+    async with Client(url=url) as client:
+
+            for i in range (3): 
+                print('')
+            root = client.get_node(client.nodes.root)
+            # bname = await root.read_browse_name()
+            # print(bname)
+            # bname2 = await root.read_display_name()
+            # print(bname2)
+            # bname3 = await root.read_description()
+            # print(bname3)
+            nodes_children = await root.get_children()
+            #print(nodes_children)
+            for i, node in enumerate(nodes_children):
+                bname = await node.read_browse_name()
+                dname = await node.read_display_name()
+                dename = await node.read_description()
+                if i == 0:
+                    object_node = node
+            
+            object_children = await object_node.get_children()
+            #print(object_children)
+            for i, node in enumerate(object_children):
+                if i == 1:
+                    object_2_node = node
+                    print(node)
+            object_2_children = await object_2_node.get_children()
+            print(object_2_children)
+            # for i, node in enumerate(object_2_children):
+            #     if i == 0:
+            #         object_3_node = node
+            # bname = object_3_node.nodeid
+            vibration_node = client.get_node("ns=1;s=IOLM/Port 3/Attached Device/PDI Data Byte Array")
+            value = await vibration_node.read_value()
+            print(value)
+            for i in range (3): 
+                print('')
+            await asyncio.sleep(1)
 
 
 main_runtime()
